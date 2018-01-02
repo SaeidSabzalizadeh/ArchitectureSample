@@ -1,17 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Architecture.Core.WebMVC.Implementation;
 using Architecture.Core.WebMVC.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace Architecture.Core.WebMVC.Controllers
 {
     public class HomeController : Controller
     {
+
+        private SessionManager _sessionManager;
+
         public IActionResult Index()
         {
+            _sessionManager = new SessionManager(HttpContext);
+            _sessionManager.CurrentUser = "Saeid";
+
+            ViewBag.User = _sessionManager.CurrentUser;
             return View();
         }
 
