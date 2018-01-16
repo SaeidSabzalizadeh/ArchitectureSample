@@ -6,6 +6,8 @@ namespace Architecture.Core.Console
     {
         static void Main(string[] args)
         {
+
+            SharedLibrary.InterfaceSegregation.TestUseSettings.Test();
             System.Console.WriteLine();
             System.Console.ReadLine();
         }
